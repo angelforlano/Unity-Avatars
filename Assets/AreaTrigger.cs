@@ -8,7 +8,7 @@ public class AreaTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerController>().speed = 2;
+            other.gameObject.GetComponent<PlayerController>().GetSlow();
         }
     }
 
@@ -16,7 +16,7 @@ public class AreaTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerController>().speed = 4;
+            other.gameObject.GetComponent<PlayerController>().RecoverSpeed();
         }
     }
 }

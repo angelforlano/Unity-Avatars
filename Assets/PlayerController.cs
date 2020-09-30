@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [Range(0, 100)] public int hp = 100;
+    [Range(1, 5)] public float walkSpeed = 4;
     [Range(1, 5)] public float speed = 4;
     
     [Header("Player Stacks")]
@@ -32,18 +33,21 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector3(hMove, 0, vMove) * Time.deltaTime * speed);
     }
 
-    void OnTriggerEnter(Collider other)
+    public void GetSlow()
     {
-        if (other.CompareTag("Coins"))
-        {
-            coins++;
-            Destroy(other.gameObject);
-        }
+        speed = walkSpeed / 2;
+        Debug.Log("Player Getting Slow");
+    }
 
-        /*if (other.CompareTag("Keys"))
-        {
-            keys++;
-            Destroy(other.gameObject);
-        }*/
+    public void RecoverSpeed()
+    {
+        speed = walkSpeed;
+        Debug.Log("Player Recover Speed");
+    }
+
+    public void AddCoin()
+    {
+        coins++;
+        Debug.Log("Coins > " + coins);
     }
 }
