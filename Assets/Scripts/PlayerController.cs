@@ -45,9 +45,23 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Recover Speed");
     }
 
+    // (simple) > es vacia, no tiene parametros!
     public void AddCoin()
     {
         coins++;
         Debug.Log("Coins > " + coins);
+    }
+
+    // Funcion para recivir dano!!!!
+    public bool GetDamage(int damage)
+    {
+        hp -= damage;
+
+        if(hp > 0)
+        {
+            return false;
+        } else {
+           return true; 
+        }
     }
 }
